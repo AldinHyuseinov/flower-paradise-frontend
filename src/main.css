@@ -1,0 +1,10 @@
+:root {
+    --light: #fff;
+}
+
+footer {
+    margin-top: 2rem;
+    color: var(--light);
+    text-align: center;
+    padding: 1rem;
+}
