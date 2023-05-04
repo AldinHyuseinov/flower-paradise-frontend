@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -7,14 +7,38 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
 function RegisterPage() {
-    const [validated, setValidated] = useState(false);
+    const [validated, setValidated] = useState(false)
+    const password = useRef()
+    const confirmPassword = useRef()
+
+    const validateConfirmPassword = () => {
+
+        if (password.current.value !== confirmPassword.current.value) {
+            return false
+        }
+        return true
+    }
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+        const form = event.currentTarget
+        const isPasswordMatch = validateConfirmPassword()
+        const confirmPasswordInput = document.getElementById("validationConfirmPassword")
 
-        setValidated(true);
-    };
+        if (!isPasswordMatch) {
+            confirmPasswordInput.setCustomValidity("Passwords should match.")
+        } else {
+            confirmPasswordInput.setCustomValidity("")
+        }
+
+        if (form.checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+        } else {
+            //fetch
+        }
+
+        setValidated(true)
+    }
 
     return (
         <Container className="my-5">
@@ -24,18 +48,18 @@ function RegisterPage() {
                     <Form.Group as={Col} md="4" controlId="validationCustomUsername">
                         <Form.Label>Username</Form.Label>
                         <InputGroup hasValidation>
-                            <Form.Control type="text" placeholder="Username" required />
+                            <Form.Control type="text" placeholder="Username" required minLength="5" maxLength="20" />
                             <Form.Control.Feedback type="invalid">
-                                Please choose a username.
+                                Username should be between 5 and 20 symbols.
                             </Form.Control.Feedback>
                         </InputGroup>
                     </Form.Group>
                     <Form.Group as={Col} md="4" controlId="validationEmail">
                         <Form.Label>Email</Form.Label>
                         <InputGroup hasValidation>
-                            <Form.Control type="email" placeholder="Email" required />
+                            <Form.Control type="email" placeholder="Email" required pattern='.+@.+' />
                             <Form.Control.Feedback type="invalid">
-                                Enter email.
+                                Enter valid email.
                             </Form.Control.Feedback>
                         </InputGroup>
                     </Form.Group>
@@ -44,18 +68,18 @@ function RegisterPage() {
                     <Form.Group as={Col} md="4" controlId="validationPassword">
                         <Form.Label>Password</Form.Label>
                         <InputGroup hasValidation>
-                            <Form.Control type="password" placeholder="Password" required />
+                            <Form.Control type="password" placeholder="Password" required minLength="5" ref={password} />
                             <Form.Control.Feedback type="invalid">
-                                Enter a password.
+                                Password should be at least 5 symbols.
                             </Form.Control.Feedback>
                         </InputGroup>
                     </Form.Group>
                     <Form.Group as={Col} md="4" controlId="validationConfirmPassword">
                         <Form.Label>Confirm Password</Form.Label>
                         <InputGroup hasValidation>
-                            <Form.Control type="password" placeholder="Confirm Password" required />
+                            <Form.Control type="password" placeholder="Confirm Password" required minLength="5" ref={confirmPassword} />
                             <Form.Control.Feedback type="invalid">
-                                Confirm your password.
+                                Passwords should match.
                             </Form.Control.Feedback>
                         </InputGroup>
                     </Form.Group>
