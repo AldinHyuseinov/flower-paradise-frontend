@@ -1,3 +1,13 @@
+# Flower Paradise
+Two person project. Online gift shop for selling flowers and gifts.
+
+Back-end can be found [here](https://github.com/KonstantinMirkov/flowerParadiseProducts_Backend).
+
+# Front-end
+Build with React.
+
+Also using React-router-dom and react-bootstrap libraries
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
