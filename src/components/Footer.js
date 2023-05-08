@@ -1,5 +1,4 @@
 import Container from 'react-bootstrap/Container'
-import '../css/common.css';
 
 function Footer() {
     return (
