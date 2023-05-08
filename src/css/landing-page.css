@@ -1,0 +1,25 @@
+.bg-image {
+    background-image: url('/public/images/flower-background-52.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 55vh;
+    width: 100%;
+    overflow: auto;
+}
+
+@font-face {
+    font-family: Italianno;
+    src: url('/public/fonts/Italianno-Regular.ttf') format('truetype');
+  }
+
+.welcome {
+    font-family: Italianno, cursive;
+    font-size: 55px;
+}
+
+.welcome-text {
+    font-family: Italianno, cursive;
+    font-size: 45px;
+}
+

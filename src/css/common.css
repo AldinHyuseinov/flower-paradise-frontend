@@ -1,0 +1,9 @@
+@font-face {
+    font-family: Italianno;
+    src: url('/public/fonts/Italianno-Regular.ttf') format('truetype');
+  }
+
+.text {
+    font-family: Italianno, cursive;
+    font-size: 30px;
+}
