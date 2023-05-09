@@ -1,8 +1,9 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from 'react';
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
+import useUser from "./hooks/useUser";
 
 const HomePage = lazy(() => import("./pages/Index"))
 const RegisterPage = lazy(() => import("./pages/Register"))
@@ -10,6 +11,8 @@ const LoginPage = lazy(() => import("./pages/Login"))
 const ErrorPage = lazy(() => import("./pages/Error"))
 
 function App() {
+  const user = useUser()
+
   return (
     <>
       <Navigation />
@@ -17,8 +20,8 @@ function App() {
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route index element={<HomePage />} />
-            <Route path="/auth/register" element={<RegisterPage />} />
-            <Route path="/auth/login" element={<LoginPage />} />
+            <Route path="/auth/register" element={user === null ? <RegisterPage /> : <Navigate to="/" />} />
+            <Route path="/auth/login" element={user === null ? <LoginPage /> : <Navigate to="/" />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Suspense>

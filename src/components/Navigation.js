@@ -2,8 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import useUser from '../hooks/useUser';
 
 function Navigation() {
+    const user = useUser();
+
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -13,7 +16,7 @@ function Navigation() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown" className="text fs-4">
+                        <NavDropdown title="Dropdown" id="basic-nav-dropdown" className="nav-text">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
                                 Another action
@@ -24,9 +27,12 @@ function Navigation() {
                                 Separated link
                             </NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="/auth/register"><img src='/images/register-icon-29.jpg' width="20" height="25" alt='Register Icon' /></Nav.Link>
-                        <Nav.Link href="/auth/login"><img src='/images/login.png' width="29" height="25" alt='Login Icon' /></Nav.Link>
+                        {user === null && <><Nav.Link className="nav-text" href="/auth/register"><img src='/images/register-icon-29.jpg' width="20" height="25" alt='Register Icon' /> Register</Nav.Link>
+                            <Nav.Link className="nav-text" href="/auth/login"><img src='/images/login.png' width="29" height="25" alt='Login Icon' /> Login</Nav.Link></>}
                     </Nav>
+                    {user !== null && <Navbar.Text className="nav-text">
+                        Signed in as: {user.username}
+                    </Navbar.Text>}
                 </Navbar.Collapse>
             </Container>
         </Navbar>
