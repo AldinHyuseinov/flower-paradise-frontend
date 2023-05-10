@@ -2,11 +2,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import useUser from '../hooks/useUser';
 
-function Navigation() {
-    const user = useUser();
-
+function Navigation({ user }) {
     return (
         <Navbar bg="light" expand="lg">
             <Container>

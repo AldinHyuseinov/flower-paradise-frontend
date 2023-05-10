@@ -12,10 +12,10 @@ const ErrorPage = lazy(() => import("./pages/Error"))
 
 function App() {
   const user = useUser()
-
+  
   return (
     <>
-      <Navigation />
+      <Navigation user={user}/>
       <BrowserRouter>
         <Suspense fallback={<Loading />}>
           <Routes>
