@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import useUser from "./hooks/useUser";
 
-const HomePage = lazy(() => import("./pages/Index"))
+const HomePage = lazy(() => import("./pages/Home"))
 const RegisterPage = lazy(() => import("./pages/Register"))
 const LoginPage = lazy(() => import("./pages/Login"))
 const ErrorPage = lazy(() => import("./pages/Error"))
