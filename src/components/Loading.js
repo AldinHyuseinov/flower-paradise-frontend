@@ -1,12 +1,20 @@
-import Container from 'react-bootstrap/Container';
-import Spinner from 'react-bootstrap/Spinner';
+import "../css/loading-spinner.css";
 
 function Loading() {
-    return (
-        <Container className="my-5 text-center">
-            <Spinner animation="border" />
-        </Container>
-    );
+  return (
+    <div className="container">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  );
 }
 
 export default Loading;

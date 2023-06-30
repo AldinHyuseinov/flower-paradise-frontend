@@ -1,12 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Italianno&family=Lato:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italianno&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 html {
   font: 16px/1.5 "Lato", sans-serif;
 }
 
 body,
-button {
+button,
+label,
+textarea,
+input,
+table {
   font: inherit;
+}
+
+@media (width <= 870px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (width <= 365px) {
+  html {
+    font-size: 12px;
+  }
 }
 
 h1,

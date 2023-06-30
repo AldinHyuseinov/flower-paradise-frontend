@@ -1,9 +1,0 @@
-.bg-image {
-    background-image: url('/public/images/flower-background-52.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height: 55vh;
-    width: 100%;
-    overflow: auto;
-}

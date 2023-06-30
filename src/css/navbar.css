@@ -1,5 +1,6 @@
 :root {
   --clr-orange: #ff5722;
+  --clr-dark-orange: #dd4112;
 }
 
 .site-header {
@@ -22,6 +23,20 @@
   padding: 0.5em;
 }
 
+.branding .title p:first-child {
+  font: 35px/0.7 Italianno, cursive;
+  text-align: center;
+  font-weight: bold;
+}
+
+.branding .title .sub-title {
+  font-size: 14px;
+  line-height: 1.2;
+  font-style: italic;
+  text-align: center;
+  max-width: 20ch;
+}
+
 .branding a:hover {
   color: var(--clr-orange);
 }
@@ -31,7 +46,9 @@
 }
 
 .media {
+  flex-shrink: 0;
   width: 30px;
+  margin-bottom: 2.5em;
 }
 
 .main-nav {
@@ -78,7 +95,7 @@
 
 .catalog-links li:hover {
   cursor: pointer;
-  background-color: #dd4112;
+  background-color: var(--clr-dark-orange);
   border-radius: 0.5em;
 }
 
@@ -92,6 +109,7 @@
 .catalog-links a {
   display: block;
   text-decoration: none;
+  text-align: center;
   color: #000;
 }
 
@@ -128,7 +146,15 @@ label {
 
   label {
     display: block;
-    padding: 1em;
+    padding-left: 1.2em;
+  }
+
+  .branding .title .sub-title {
+    display: none;
+  }
+
+  .media {
+    margin-bottom: 1em;
   }
 
   .site-header {
@@ -138,13 +164,12 @@ label {
   }
 
   .site-header .navigation {
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 0.8em;
   }
 
   .site-header ul {
-    flex-wrap: wrap;
     gap: 0;
   }
 
@@ -154,24 +179,30 @@ label {
 
   #nav-toggle:checked ~ .navigation > .more-links {
     display: flex;
+    justify-content: center;
   }
 
-  .catalog-links,
-  /* .main-nav, */
-  .more-links {
+  #nav-toggle:checked ~ .navigation {
+    flex-wrap: wrap;
+  }
+
+  #nav-toggle:checked ~ .navigation > .branding .title .sub-title {
+    display: block;
+  }
+
+  #nav-toggle:checked ~ .navigation > .branding .media {
+    margin-bottom: 3.5em;
+  }
+
+  .catalog-links {
     position: absolute;
     top: 75%;
     left: 0;
   }
 
-  .more-links {
-    top: 90%;
-    left: 15%;
-  }
-
   .catalog-links {
     width: 100%;
-    top: 160%;
+    top: 100%;
   }
 
   .catalog-links li {
@@ -185,7 +216,7 @@ label {
   .catalog-links li:hover ul {
     display: block;
     position: static;
-    background-color: #dd4112;
+    background-color: var(--clr-dark-orange);
   }
 
   .catalog-links li:hover ul li:hover {
@@ -196,12 +227,5 @@ label {
     display: flex;
     flex-direction: column;
     gap: 1em;
-  }
-
-  footer {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, 50%);
   }
 }

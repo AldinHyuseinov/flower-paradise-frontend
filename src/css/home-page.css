@@ -1,0 +1,25 @@
+.section-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  background-image: url("/public/images/flower-background-52.jpg");
+  background-repeat: no-repeat;
+  background-position: 100% 80%;
+  padding: 2em;
+  min-height: 20em;
+}
+
+.section-banner h1 {
+  text-align: center;
+}
+
+.section-banner p {
+  max-width: 60ch;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+}
